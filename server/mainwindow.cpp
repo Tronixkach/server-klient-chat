@@ -28,7 +28,7 @@ void MainWindow::on_startServerButton_clicked()
 
     connect(tcpServer, &QTcpServer::newConnection, this, &MainWindow::onNewConnection);
 
-    int port = 1234;
+    int port = ui->portSpinBox->value();
 
     if (tcpServer->listen(QHostAddress::Any, port)) {
         ui->textEdit_log->append(QString("Сервер успішно запущено на порту %1...").arg(port));
